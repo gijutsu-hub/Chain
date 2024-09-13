@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blockchain Chain History</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Background Gradient */
+    body {
+      background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+    }
+
+    /* Card Styling */
+    .block-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .block-card:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      transform: translateY(-4px);
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 640px) {
+      .block-card {
+        padding: 1rem;
+      }
+    }
+
+    /* Card Header Icon */
+    .block-icon {
+      color: #4b5563;
+      background-color: #f9fafb;
+      border-radius: 50%;
+      padding: 0.75rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body class="p-8">
+  <div class="container mx-auto max-w-4xl">
+    <header class="text-center mb-12">
+      <h1 class="text-5xl font-extrabold text-gray-900 mb-2">Enterprise Blockchain Chain History</h1>
+      <p class="text-lg text-gray-600">Explore and analyze the detailed history of blockchain transactions and blocks.</p>
+    </header>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="text-center text-gray-700 text-xl font-semibold mb-8">Fetching blockchain data...</div>
+
+    <!-- Blockchain History Container -->
+    <div id="blockchain-history" class="space-y-8">
+      <!-- Blocks will be dynamically generated here -->
+    </div>
+
+    <!-- Error Message -->
+    <div id="error-message" class="hidden text-center text-red-700 text-lg font-semibold mt-6"></div>
+  </div>
+
+  <script>
+    async function fetchBlockchainHistory() {
+      const url = 'http://backend-connect.paymefin.tech/api/external/get-chain-data'; // Replace with your actual URL
+
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ /* Any required request body */ })
+        });
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+        const blockchainData = await response.json();
+
+        // Remove the loading message
+        document.getElementById('loading').classList.add('hidden');
+
+        // Render the blockchain data
+        renderBlockchainHistory(blockchainData.result.mun);
+
+      } catch (error) {
+        document.getElementById('loading').classList.add('hidden');
+        document.getElementById('error-message').classList.remove('hidden');
+        document.getElementById('error-message').textContent = `Error fetching data: ${error.message}`;
+      }
+    }
+
+    function renderBlockchainHistory(blocks) {
+      const container = document.getElementById('blockchain-history');
+
+      blocks.forEach((block, index) => {
+        const blockDiv = document.createElement('div');
+        blockDiv.className = `block-card p-6 fade-in ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`;
+
+        blockDiv.innerHTML = `
+          <div class="flex items-center mb-4">
+            <svg class="block-icon h-10 w-10 text-blue-600 mr-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7v7c0 5.523 4.477 10 10 10s10-4.477 10-10V7l-10-5zm0 2.618l8 3.682v4.297c-.002 4.411-3.591 8-8 8s-7.998-3.589-8-8V8.3l8-3.682zm-1 5v6h2V9h-2z"/></svg>
+            <h2 class="text-3xl font-semibold text-gray-800">Block #${block.index}</h2>
+          </div>
+          <p class="text-gray-700 mb-2"><span class="font-semibold">Hash:</span> ${block.hash}</p>
+          <p class="text-gray-700 mb-2"><span class="font-semibold">Previous Hash:</span> ${block.previousHash}</p>
+          <p class="text-gray-700 mb-4"><span class="font-semibold">Timestamp:</span> ${new Date(block.timestamp * 1000).toLocaleString()}</p>
+          <div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Transactions:</h3>
+            <ul class="list-disc list-inside pl-6">
+              ${block.transactions.length > 0 ? block.transactions.map(transaction => `
+                <li class="mb-2">
+                  <p class="text-gray-700"><span class="font-semibold">Transaction ID:</span> ${transaction.transactionId}</p>
+                  <p class="text-gray-700"><span class="font-semibold">Type:</span> ${transaction.type}</p>
+                  <p class="text-gray-700"><span class="font-semibold">Client ID:</span> ${transaction.address.clientid}</p>
+                  <p class="text-gray-700"><span class="font-semibold">Merchant ID:</span> ${transaction.address.merchantid}</p>
+                  <p class="text-gray-700"><span class="font-semibold">Name:</span> ${transaction.address.NAME}</p>
+                  <p class="text-gray-700"><span class="font-semibold">Email:</span> ${transaction.address.email}</p>
+                </li>
+              `).join('') : '<li class="text-gray-600">No transactions in this block.</li>'}
+            </ul>
+          </div>
+        `;
+
+        // Append the block to the container
+        container.appendChild(blockDiv);
+
+        // Apply the fade-in animation
+        setTimeout(() => {
+          blockDiv.classList.add('visible');
+        }, index * 300); // Delay each block slightly
+      });
+    }
+
+    window.onload = fetchBlockchainHistory;
+  </script>
+</body>
+</html>
