@@ -1,4 +1,4 @@
-Here’s a refined version with sub-categories for each account type, ensuring that pricing and features align with the different business needs at various levels:
+Here's the revised plan with an **Enterprise On-Demand** option under the **E [Enterprise]** category, allowing more customization based on specific enterprise needs:
 
 ---
 
@@ -9,15 +9,15 @@ Here’s a refined version with sub-categories for each account type, ensuring t
 #### **B [Small Business]**
 **Price Range: ₹199 - ₹599 / Month**
 
-| **PLAN**    | **B1** (₹199/month) | **B2** (₹399/month) | **B3** (₹599/month) |
+| **PLAN**    | **B1** (₹0/month) | **B2** (₹299/month) | **B3** (₹499/month) |
 |-------------|---------------------|---------------------|---------------------|
 | **Web API to Domain Mapping** | 1 Web API → 1 Domain | 1 Web API → 2 Domains | 1 Web API → 3 Domains |
-| **Dashboard Access** | 2 Users | 2 Users | 3 Users |
+| **Dashboard Access** | 1 User | 2 Users | 3 Users |
 | **Unlimited Payments** | Payments < ₹1,000 | Payments < ₹3,000 | Payments < ₹5,000 |
-| **Product on Chain Record** | N/A | 3 Products | 5 Products |
+| **Product on Chain Record** | 1 Product | 3 Products | 5 Products |
 | **Access Management Users** | N/A | 1 User | 2 Users |
 | **EPOS Access** | N/A | N/A | 1 EPOS System |
-| **Lock System** | Basic | Basic | Enhanced |
+| **Lock System** | N/A | N/A | Enhanced |
 | **AI Payment Monitoring** | Basic Monitoring | Enhanced Monitoring | Advanced Monitoring |
 
 ##### **Best For:** Freelancers, startups, and small businesses needing basic to moderate features.
@@ -27,10 +27,10 @@ Here’s a refined version with sub-categories for each account type, ensuring t
 #### **O [Small Shops]**
 **Price Range: ₹90 - ₹199 / Month**
 
-| **PLAN**    | **O1** (₹90/month) | **O2** (₹129/month) | **O3** (₹199/month) |
+| **PLAN**    | **O1** (₹0/month) | **O2** (₹129/month) | **O3** (₹199/month) |
 |-------------|---------------------|---------------------|---------------------|
 | **Web API to Domain Mapping** | 1 Web API → 1 Domain | 1 Web API → 1 Domain | 1 Web API → 1 Domain |
-| **Dashboard Access** | N/A | N/A | 1 User |
+| **Dashboard Access** | 1 User | 1 User | 1 User |
 | **Unlimited Payments** | Payments < ₹5,000 | Payments < ₹7,500 | Payments < ₹10,000 |
 | **EPOS Access** | 1 EPOS System | 1 EPOS System | 2 EPOS Systems |
 | **Lock System** | Basic | Basic | Enhanced |
@@ -61,18 +61,18 @@ Here’s a refined version with sub-categories for each account type, ensuring t
 #### **E [Enterprise]**
 **Price Range: ₹1,599 - ₹3,999 / Month**
 
-| **PLAN**    | **E1** (₹1,599/month) | **E2** (₹2,499/month) | **E3** (₹3,999/month) |
-|-------------|-----------------------|-----------------------|-----------------------|
-| **Web API to Domain Mapping** | 1 Web API → 10 Domains | 1 Web API → 15 Domains | 1 Web API → 20 Domains |
-| **Dashboard Access** | 5 Users | 7 Users | 10 Users |
-| **Unlimited Payments** | Payments < ₹50,000 | Payments < ₹75,000 | Payments < ₹1,00,000 |
-| **Product on Chain Record** | 20 Products (₹100 per extra) | 25 Products (₹100 per extra) | 30 Products (₹100 per extra) |
-| **Access Management Users** | 5 Users | 7 Users | 10 Users |
-| **EPOS Access** | 2 EPOS Systems | 3 EPOS Systems | 5 EPOS Systems |
-| **Lock System** | Advanced | Advanced | Enterprise Lock System |
-| **AI Payment Monitoring** | Enterprise Monitoring | Predictive Monitoring | AI-driven Predictive Monitoring |
+| **PLAN**    | **E1** (₹1,599/month) | **E2** (₹2,499/month) | **E3** (₹3,999/month) | **E4** (On Demand) |
+|-------------|-----------------------|-----------------------|-----------------------|------------------|
+| **Web API to Domain Mapping** | 1 Web API → 10 Domains | 1 Web API → 15 Domains | 1 Web API → 20 Domains | Custom Domain Mapping |
+| **Dashboard Access** | 5 Users | 7 Users | 10 Users | Custom |
+| **Unlimited Payments** | Payments < ₹50,000 | Payments < ₹75,000 | Payments < ₹1,00,000 | Custom |
+| **Product on Chain Record** | 20 Products (₹100 per extra) | 25 Products (₹100 per extra) | 30 Products (₹100 per extra) | Custom Product Limits |
+| **Access Management Users** | 5 Users | 7 Users | 10 Users | Custom |
+| **EPOS Access** | 2 EPOS Systems | 3 EPOS Systems | 5 EPOS Systems | Custom EPOS |
+| **Lock System** | Advanced | Advanced | Enterprise Lock System | Custom Lock System |
+| **AI Payment Monitoring** | Enterprise Monitoring | Predictive Monitoring | AI-driven Predictive Monitoring | Custom AI Monitoring |
 
-##### **Best For:** Large enterprises managing complex, high-value transactions across multiple domains, with enhanced security and management.
+##### **Best For:** Large enterprises managing complex, high-value transactions across multiple domains, with enhanced security and management. The **On-Demand** plan is tailored for businesses requiring highly customizable features for their specific needs.
 
 ---
 
@@ -98,7 +98,7 @@ Here’s a refined version with sub-categories for each account type, ensuring t
 - **B [Small Business] (₹199 - ₹599):** Focuses on freelancers, startups, and smaller businesses with growing needs.
 - **O [Small Shops] (₹90 - ₹199):** Specifically designed for small shops requiring basic EPOS and payment features.
 - **M [Medium Scale] (₹799 - ₹1,599):** Tailored for medium-sized businesses scaling their operations.
-- **E [Enterprise] (₹1,599 - ₹3,999):** Suited for larger enterprises requiring advanced functionality, multiple domains, and higher security.
+- **E [Enterprise] (₹1,599 - ₹3,999):** Suited for large enterprises requiring advanced functionality, multiple domains, and higher security, including an **On-Demand** option for custom enterprise solutions.
 - **P [Premium] (₹4,999 - On Demand):** Offers premium features, AI-driven solutions, and highly customizable options for large-scale, high-value businesses.
 
-This sub-category system offers flexibility and scalability, allowing businesses of all sizes to choose a plan that fits their specific needs while providing room for growth.
+This update introduces the **Enterprise On-Demand** plan under the **E** category, allowing for full customization based on the specific enterprise needs beyond predefined features.
